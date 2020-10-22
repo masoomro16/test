@@ -3,16 +3,24 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 const app = express();
+const path = require("path")
+
+app.use(express.static(path.join(__dirname, "client", "build")))
+
+// ...
+// Right before your app.listen(), add this:
+
+
+
 
 const routeTasks = require('./src/routes/tasks');
 
-app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(bodyParser.json());
 
 app.use('/api/tasks', routeTasks, (req, res) => res.sendStatus(401));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/client/build/index.html'));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 const port = process.env.PORT || 5000;
