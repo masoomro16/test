@@ -3,15 +3,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 const app = express();
-const path = require("path")
 
 app.use(express.static(path.join(__dirname, "client", "build")))
-
-// ...
-// Right before your app.listen(), add this:
-
-
-
 
 const routeTasks = require('./src/routes/tasks');
 
